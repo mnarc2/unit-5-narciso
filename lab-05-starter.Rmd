@@ -64,10 +64,12 @@ earthquakes_3 <- read_xlsx("data/earthquakes-3.xlsx")
 **Goal:** Identify what is missing and why a `col_types` argument is needed.
 
 ```{r view-partial, eval = FALSE}
-# View the three imported data frames
+earthquakes_1
+earthquakes_2
+earthquakes_3
 ```
 
-> Replace this text with answers to the three questions about missing variables, the `deaths` column, and why the next chunk fixes it.
+> Earthquakes 1 is missing the richter and deaths column. Earthquake 2 is missing area, region, and deaths. Earthquake 3 is missing richter, area, and region. The deaths column is strange because the data type is not numeric. The chunk below fixes that.
 
 ```{r coerce-earthquakes-3, eval = FALSE, message = FALSE, warning = FALSE}
 earthquakes_3 <- read_xlsx("data/earthquakes-3.xlsx", col_types = c("numeric", 
