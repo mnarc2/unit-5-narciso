@@ -83,7 +83,11 @@ earthquakes_3 <- read_xlsx("data/earthquakes-3.xlsx", col_types = c("numeric",
 **Goal:** Combine the three partial data frames and confirm the result.
 
 ```{r join-partial, eval = FALSE}
-# Join pipeline piped into skim()
+earthquakes_merged <- earthquakes_1 %>%
+  merge(earthquakes_2, by=c("year","month","day")) %>%
+  merge(earthquakes_3, by=c("year","month","day"))
+
+earthquakes_merged
 ```
 
 ## Exercise 5 — Read and glimpse the bad-names file
