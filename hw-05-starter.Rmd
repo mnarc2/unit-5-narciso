@@ -1,0 +1,93 @@
+---
+title: "HW 05 - Putting it all together!"
+author: "Insert your name here"
+date: "Insert date here"
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+---
+
+# Academic integrity and honor code
+
+By completing and submitting this homework, I certify that:
+
+- I completed the submitted work myself.
+- I did not use generative AI (including ChatGPT, Claude, Gemini, Copilot, Grok, or similar tools) to generate, debug, revise, or interpret code or written answers for this assignment.
+- I may use course materials, lecture notes, R documentation/help files, and other resources explicitly approved by the instructors.
+- I understand that I am responsible for being able to explain all code and written work that I submit.
+
+**Name:** ______________________________  
+**Signature:** ___________________________  
+**Date:** _______________________________
+
+# Before you begin
+
+Work through `hw-05-instructions.Rmd`. Keep **all submitted code in this file** and Knit frequently. Ask Dr. Gavin McNicol or TA Kayode Ayegbusi if you are still stuck after checking spelling, parentheses, and Knit errors.
+
+# Load packages
+
+```{r load-packages, eval = FALSE, message = FALSE, warning = FALSE}
+library(tidyverse)
+```
+
+# Exercises
+
+## Exercise 1 — Import and inspect
+
+**Goal:** Read the tornado data and report its size.
+
+```{r import-tornado, eval = FALSE}
+# Your code here
+```
+
+> Replace this text with the number of rows and variables.
+
+## Exercise 2 — Select and overwrite
+
+**Goal:** Keep only the columns needed for later steps.
+
+```{r select-overwrite, eval = FALSE}
+# Your code here
+```
+
+## Exercise 3 — Spot the problem and write a CSV
+
+**Goal:** Identify a data-quality issue and save the selected columns.
+
+```{r inspect-magnitude, eval = FALSE}
+# Your code here
+```
+
+> Replace this text with a comment on what is strange about `magnitude`.
+
+```{r write-csv, eval = FALSE}
+# Your code here
+```
+
+## Exercise 4 — Re-read and fix magnitude
+
+**Goal:** Import the file you just wrote and correct the type of `magnitude`.
+
+```{r reread-fix, eval = FALSE}
+# Your code here
+```
+
+## Exercise 5 — Faceted scatter plot
+
+**Goal:** Explore fatalities by time of day, magnitude, state, and width.
+
+```{r plot-fatalities, eval = FALSE}
+# Your code here
+```
+
+> Replace this text with a narrative about when tornado fatalities are generally highest and any caveats.
+
+# Submission checklist
+
+- [ ] I signed the academic-integrity statement.
+- [ ] My name and date are correct in the YAML.
+- [ ] I answered every requested question in complete sentences.
+- [ ] All required code is in this file.
+- [ ] This document Knits without errors.
+- [ ] I committed and pushed my final changes to GitHub.
