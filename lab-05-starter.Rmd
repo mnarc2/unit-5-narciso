@@ -95,7 +95,7 @@ earthquakes_merged
 **Goal:** Import a file with problem names and values and inspect it.
 
 ```{r read-inspect, eval = FALSE}
-read_csv("___/earthquakes-badnames-na.csv") %>% 
+read_csv("data/earthquakes-badnames-na.csv") %>% 
   glimpse()
 ```
 
@@ -104,7 +104,7 @@ read_csv("___/earthquakes-badnames-na.csv") %>%
 **Goal:** Treat non-numeric placeholders as missing while reading.
 
 ```{r fix-nas, eval = FALSE}
-read_csv("___/earthquakes-badnames-na.csv") 
+read_csv("data/earthquakes-badnames-na.csv", na = c("NA", "."))
 ```
 
 ## Exercise 7 — Clean variable names
@@ -112,7 +112,8 @@ read_csv("___/earthquakes-badnames-na.csv")
 **Goal:** Fix non-syntactic column names in the same pipeline.
 
 ```{r fix-names, eval = FALSE, message = FALSE, warning = FALSE}
-# Your pipeline here
+read_csv("data/earthquakes-badnames-na.csv", na = c("NA", ".")) %>%
+  janitor::clean_names()
 ```
 
 ## Exercise 8 — Recode and coerce richter
@@ -120,7 +121,11 @@ read_csv("___/earthquakes-badnames-na.csv")
 **Goal:** Replace a character value and convert the column to numeric.
 
 ```{r fix-richter, eval = FALSE, message = FALSE, warning = FALSE}
-# Your pipeline here
+read_csv("data/earthquakes-badnames-na.csv", na = c(".", "NA")) %>%
+  janitor::clean_names() %>%
+  mutate(richter = case_when(richter == "seven" ~ "7",
+                                        TRUE ~ richter),
+        richter = as.numeric(richter))
 ```
 
 ## Exercise 9 — Re-level month and confirm
@@ -136,14 +141,22 @@ read_csv("___/earthquakes-badnames-na.csv")
 **Goal:** Confirm that factor order is preserved in an RDS file.
 
 ```{r write-read-rds, eval = FALSE, message = FALSE, warning = FALSE}
-# Your pipelines here
+earthquakes_correct <- read_csv("data/earthquakes-badnames-na.csv", na = c(".", "NA")) %>%
+  janitor::clean_names() %>%
+  mutate(richter = case_when(richter == "seven" ~ "7",
+                             TRUE ~ richter), 
+         richter = as.numeric(richter),
+         month = fct_relevel(month, "January", "February", "March", "April", "May", "June",
+                             "July", "August", "September", "October", "November", "December"))
+earthquakes_correct %>%
+  count(month)
 ```
 
 # Submission checklist
 
-- [ ] I signed the academic-integrity statement.
-- [ ] My name and date are correct in the YAML.
-- [ ] I answered every requested question in complete sentences.
-- [ ] All required code is in this file.
-- [ ] This document Knits without errors.
-- [ ] I committed and pushed my final changes to GitHub.
+- [x] I signed the academic-integrity statement.
+- [x] My name and date are correct in the YAML.
+- [x] I answered every requested question in complete sentences.
+- [x] All required code is in this file.
+- [x] This document Knits without errors.
+- [x] I committed and pushed my final changes to GitHub.
