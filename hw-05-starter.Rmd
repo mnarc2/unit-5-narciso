@@ -66,9 +66,11 @@ tornado_data <- read_csv("data/tornado-path.csv") %>%
 tornado_data
 ```
 
-> 'magnitude' is strange because the data type is character.
+> 'magnitude' is strange because the data type is character and there are unknown values.
 
 ```{r write-csv, eval = FALSE}
+# write new csv file
+write_csv(tornado_data, file = "data/tornado-data.csv")
 
 ```
 
@@ -77,7 +79,12 @@ tornado_data
 **Goal:** Import the file you just wrote and correct the type of `magnitude`.
 
 ```{r reread-fix, eval = FALSE}
-# Your code here
+# fix magnitude column to integer and fix unknown values
+tornado_data_fixed <- read_csv("data/tornado-data.csv", 
+                               na = "unknown", 
+                               col_types = list("D", "t", "c", "i", "d", "d", "d"))
+
+tornado_data_fixed
 ```
 
 ## Exercise 5 — Faceted scatter plot
@@ -85,16 +92,21 @@ tornado_data
 **Goal:** Explore fatalities by time of day, magnitude, state, and width.
 
 ```{r plot-fatalities, eval = FALSE}
-# Your code here
+tornado_data_fixed %>%
+  filter(state_name == c("Kansas", "Oklahoma")) %>%
+
+ggplot(aes(storm_time, fatality_count, color = state_name, size = width)) +
+  geom_point() +
+  labs(title = "Tornado Fatalities", subtitle = "Source: NOAA Severe Storm Database (2004 - 2017)", x = "Time of Day", y = "Fatalities")
 ```
 
 > Replace this text with a narrative about when tornado fatalities are generally highest and any caveats.
 
 # Submission checklist
 
-- [ ] I signed the academic-integrity statement.
-- [ ] My name and date are correct in the YAML.
-- [ ] I answered every requested question in complete sentences.
-- [ ] All required code is in this file.
-- [ ] This document Knits without errors.
-- [ ] I committed and pushed my final changes to GitHub.
+- [x] I signed the academic-integrity statement.
+- [x] My name and date are correct in the YAML.
+- [x] I answered every requested question in complete sentences.
+- [x] All required code is in this file.
+- [x] This document Knits without errors.
+- [x] I committed and pushed my final changes to GitHub.
