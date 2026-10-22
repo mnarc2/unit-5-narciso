@@ -23,9 +23,9 @@ By completing and submitting this lab, I certify that:
 - I may use course materials, lecture notes, R documentation/help files, and other resources explicitly approved by the instructors.
 - I understand that I am responsible for being able to explain all code and written work that I submit.
 
-**Name:** ______________________________  
-**Signature:** ___________________________  
-**Date:** _______________________________
+**Name:** Mo Narciso  
+**Signature:** Mo Narciso  
+**Date:** 10/21/26
 
 > **Important:** Signing this statement is part of the assignment. The same statement appears in your starter file; complete it there as well.
 

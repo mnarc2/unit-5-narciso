@@ -17,9 +17,9 @@ By completing and submitting this lab, I certify that:
 - I may use course materials, lecture notes, R documentation/help files, and other resources explicitly approved by the instructors.
 - I understand that I am responsible for being able to explain all code and written work that I submit.
 
-**Name:** ______________________________  
-**Signature:** ___________________________  
-**Date:** _______________________________
+**Name:** Mo Narciso  
+**Signature:** Mo Narciso  
+**Date:** 10/21/26
 
 # Before you begin
 
@@ -47,15 +47,16 @@ library(janitor)
 skim(earthquakes)
 ```
 
-> Replace this text with a brief explanation of why we can view `earthquakes` without a `read_()` function.
+> "earthquakes' is not a file, so you do not need a read() function.
 
 ## Exercise 2 — Import the three partial files
 
 **Goal:** Read CSV, tab-separated, and Excel files with the appropriate function.
 
 ```{r import-partial, eval = FALSE}
-earthquakes_1 <- read_csv("data/___")
-# earthquakes_2 and earthquakes_3 here
+earthquakes_1 <- read_csv("data/earthquakes-1.csv")
+earthquakes_2 <- read_tsv("data/earthquakes-2.txt")
+earthquakes_3 <- read_xlsx("data/earthquakes-3.xlsx")
 ```
 
 ## Exercise 3 — Compare the partial files and fix types
