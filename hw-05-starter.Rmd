@@ -38,18 +38,23 @@ library(tidyverse)
 **Goal:** Read the tornado data and report its size.
 
 ```{r import-tornado, eval = FALSE}
+# read tornado data
 tornado_data <- read_csv("data/tornado-path.csv")
 glimpse(tornado_data)
 ```
 
-> Replace this text with the number of rows and variables.
+> There are 16000 rows and 19 variables.
 
 ## Exercise 2 — Select and overwrite
 
 **Goal:** Keep only the columns needed for later steps.
 
 ```{r select-overwrite, eval = FALSE}
-# Your code here
+# read tornado data
+tornado_data <- read_csv("data/tornado-path.csv") %>%
+
+# select storm date and time, state, magnitude, fatalities, length, and width. remove the rest.
+  select(storm_date, storm_time, state_name, magnitude, fatality_count, length, width)
 ```
 
 ## Exercise 3 — Spot the problem and write a CSV
@@ -57,13 +62,14 @@ glimpse(tornado_data)
 **Goal:** Identify a data-quality issue and save the selected columns.
 
 ```{r inspect-magnitude, eval = FALSE}
-# Your code here
+# view new tornado data
+tornado_data
 ```
 
-> Replace this text with a comment on what is strange about `magnitude`.
+> 'magnitude' is strange because the data type is character.
 
 ```{r write-csv, eval = FALSE}
-# Your code here
+
 ```
 
 ## Exercise 4 — Re-read and fix magnitude
