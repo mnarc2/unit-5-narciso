@@ -1,7 +1,7 @@
 ---
 title: "HW 05 - Putting it all together!"
-author: "Insert your name here"
-date: "Insert date here"
+author: "Mo Narciso"
+date: "11/4/26"
 output:
   html_document:
     toc: true
@@ -54,7 +54,8 @@ glimpse(tornado_data)
 tornado_data <- read_csv("data/tornado-path.csv") %>%
 
 # select storm date and time, state, magnitude, fatalities, length, and width. remove the rest.
-  select(storm_date, storm_time, state_name, magnitude, fatality_count, length, width)
+  select("storm_date", "storm_time", "state_name", "magnitude", "fatality_count", "length", "width")
+
 ```
 
 ## Exercise 3 — Spot the problem and write a CSV
@@ -100,7 +101,7 @@ ggplot(aes(storm_time, fatality_count, color = state_name, size = width)) +
   labs(title = "Tornado Fatalities", subtitle = "Source: NOAA Severe Storm Database (2004 - 2017)", x = "Time of Day", y = "Fatalities")
 ```
 
-> Replace this text with a narrative about when tornado fatalities are generally highest and any caveats.
+> Tornado fatalities are highest later in the day and in Oklahoma.
 
 # Submission checklist
 
