@@ -1,7 +1,7 @@
 ---
 title: "Lab 05 - Importing and recoding earthquakes"
-author: "Insert your name here"
-date: "Insert date here"
+author: "Mo Narciso"
+date: "11/4/26"
 output:
   html_document:
     toc: true
@@ -133,14 +133,6 @@ read_csv("data/earthquakes-badnames-na.csv", na = c(".", "NA")) %>%
 **Goal:** Set month levels to calendar order and confirm with `count()`.
 
 ```{r relevel-month, eval = FALSE, message = FALSE, warning = FALSE}
-# Your pipeline here
-```
-
-## Exercise 10 — Write and read RDS
-
-**Goal:** Confirm that factor order is preserved in an RDS file.
-
-```{r write-read-rds, eval = FALSE, message = FALSE, warning = FALSE}
 earthquakes_correct <- read_csv("data/earthquakes-badnames-na.csv", na = c(".", "NA")) %>%
   janitor::clean_names() %>%
   mutate(richter = case_when(richter == "seven" ~ "7",
@@ -150,6 +142,17 @@ earthquakes_correct <- read_csv("data/earthquakes-badnames-na.csv", na = c(".", 
                              "July", "August", "September", "October", "November", "December"))
 earthquakes_correct %>%
   count(month)
+```
+
+## Exercise 10 — Write and read RDS
+
+**Goal:** Confirm that factor order is preserved in an RDS file.
+
+```{r write-read-rds, eval = FALSE, message = FALSE, warning = FALSE}
+earthquakes_correct %>%
+  write_rds("data/earthquakes-badnames-na.csv")
+
+ readRDS("data/earthquakes-badnames-na.csv")
 ```
 
 # Submission checklist
